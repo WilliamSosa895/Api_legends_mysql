@@ -1,19 +1,20 @@
 // routes/index.js
 const { Router } = require("express");
-const ctr = require("../controllers");
+const controllers = require("../controllers");
 
 const router = Router();
-
 router.get("/", (req, res) => res.send("Welcome"));
 
-// Rutas users
-router.post("/users", ctr.createUser);
-router.get("/users",  ctr.getAllUsers);
-router.put("/users/:id",    ctr.updateUser);
-router.patch("/users/:id",  ctr.updateUser);    // opcional
-router.delete("/users/:id", ctr.deleteUser);
+// CRUD Leyendas
+router.post("/legends", controllers.createLegend);
+router.get("/legends", controllers.getAllLegends);
+router.get("/legends/:id", controllers.getLegendById);
+router.put("/legends/:id", controllers.updateLegend);
+router.patch("/legends/:id", controllers.updateLegend);
+router.delete("/legends/:id", controllers.deleteLegend);
 
 module.exports = router;
+
 
 
 /*
